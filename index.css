@@ -1,0 +1,294 @@
+:root {
+  font-size: 12px;
+
+  --black: #191b1d;
+  --grey: #f3f6f3;
+  --dark_grey: #6d7274;
+  --white: white;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: green;
+}
+
+.app { /*iphone x*/
+  position: relative;
+  z-index: 1;
+  width: 375px;
+  height: 812px;
+
+  /* border: 1px solid black; */
+  /* border-radius: 25px; */
+
+  color: white;
+  background: var(--grey);
+
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 45%;
+  background: var(--black);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 35px 40px 35px;
+  font-size: 1.7rem;
+}
+
+.icons {
+  display: inherit;
+}
+
+.icons div {
+  margin-left: 40px;
+}
+
+
+.hamburger {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background: blue; */
+}
+
+.hamburger div {
+  width: 100%;
+  height: 3px;
+  background: white;
+}
+
+.hamburger div:first-child, .hamburger div:last-child {
+  width: 50%;
+}
+
+.hamburger div:first-child {
+  align-self: flex-end;
+}
+
+.headline {
+  margin-left: 35px;
+  letter-spacing: .2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 1.7rem;
+  margin-top: 5px;
+}
+
+.main {
+  position: relative;
+  height: 50%;
+  display: flex;
+
+  /* background: green; */
+  margin-top: 25px;
+  margin-left: 35px;
+}
+
+.directions {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+  /* letter-spacing: .2rem; */
+  font-size: 1.5rem;
+  color: var(--dark_grey);
+
+  margin-top: 120%;
+  /* margin-left: -35px; */
+
+  transform: rotate(-90deg);
+  transform-origin: 0% 0%;
+  z-index: -1;
+}
+
+.directions div {
+  position: relative;
+}
+
+.directions div:first-child::after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 3px);
+  top: 25px;
+  width: 6px;
+  height: 6px;
+
+  background: var(--dark_grey);
+
+  border-radius: 50%;
+}
+
+.directions div:not(:first-child) {
+  margin-left: 20px;
+}
+
+.carousel {
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(55% - 23px * 2); /*show one full card and a bit of another*/
+  grid-template-rows: minmax(230px, 1fr);
+
+  overflow: hidden;
+
+  margin-top: 25px;
+  margin-left: 50px;
+
+  /* background: green; */
+}
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  /* background: blue; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card:first-child {
+  background: url('volcano.png') no-repeat center center;
+}
+
+.card:nth-child(2) {
+  transform: scale(.9);
+  background: url('forest.png') no-repeat center center;
+}
+
+.card-info {
+  margin-bottom: 80px;
+  padding: 0 20px;
+}
+
+.card-info span {
+  display: block;
+}
+
+.card-info span:first-child {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.card-info span:nth-child(2) {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.distance {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  background: black;
+  border-radius: 0 0 20px 20px;
+
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 55px;
+  margin-left: 25px;
+}
+
+.filter-item {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  color: black;
+
+  border-radius: 10px;
+  background: white;
+}
+
+.selected {
+  background: black;
+  color: white;
+}
+
+.nav {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  font-size: 2rem;
+
+  padding: 10px 0;
+  background: white;
+  color: black;
+}
+
+.nav-item span {
+  font-size: 1.3rem;
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.active span {
+  margin-left: 10px;
+}
